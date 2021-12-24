@@ -1,8 +1,8 @@
-public class Node{
+public class Node_LFUCache {
     Integer key, value, frequency;
-    Node next, prev;
+    Node_LFUCache next, prev;
 
-    public Node(Integer key, Integer value){
+    public Node_LFUCache(Integer key, Integer value){
         this.key = key;
         this.value = value;
         this.frequency = 0;

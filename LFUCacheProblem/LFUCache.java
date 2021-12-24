@@ -10,7 +10,7 @@ import java.util.Map;
 
 public  class LFUCache {
     int capacity, size, minFreq;
-    Map<Integer, Node> cache;
+    Map<Integer, Node_LFUCache> cache;
     Map<Integer, DLLNode> freqMap;
 
     public LFUCache(int capacity) {
@@ -23,7 +23,7 @@ public  class LFUCache {
     }
 
     public int get(int key) {
-        Node node = this.cache.get(key);
+        Node_LFUCache node = this.cache.get(key);
         if(node == null){
             return -1;
         }
@@ -32,20 +32,20 @@ public  class LFUCache {
     }
 
     public java.lang.Integer put(int key, int value) {
-        Node node = this.cache.get(key);
+        Node_LFUCache node = this.cache.get(key);
 
         if(node != null){
             node.setValue(value);
             updateFrequencyPerPolicy(node);
         } else {
-            Node newNode = new Node(key, value);
+            Node_LFUCache newNode = new Node_LFUCache(key, value);
             updateFrequencyPerPolicy(newNode);
             this.cache.put(key, newNode);
             this.size++;
 
             if(this.size > this.capacity){
                 DLLNode freqDLL = this.freqMap.get(this.minFreq);
-                Node lastNode = freqDLL.removeLast();
+                Node_LFUCache lastNode = freqDLL.removeLast();
                 this.cache.remove(lastNode.getKey());
                 this.size--;
             }
@@ -55,7 +55,7 @@ public  class LFUCache {
         return null;
     }
 
-    private void updateFrequencyPerPolicy(Node node){
+    private void updateFrequencyPerPolicy(Node_LFUCache node){
         int oldFreq = node.getFrequency();
         if(this.freqMap.containsKey(oldFreq)){
             DLLNode oldFreqDLL = this.freqMap.get(oldFreq);
