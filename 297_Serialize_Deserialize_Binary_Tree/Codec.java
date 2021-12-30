@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Codec {
-    public String serialize(TreeNode297 root) {
+    public String serialize(TreeNode root) {
         if(root == null){
             return "X";
         }
@@ -12,20 +12,20 @@ public class Codec {
     }
 
 
-    public TreeNode297 deserialize(String data) {
+    public TreeNode deserialize(String data) {
         Queue<String> queue = new LinkedList(Arrays.asList(data.split(",")));
 
         return deserializeHelper(queue);
     }
 
-    private TreeNode297 deserializeHelper(Queue<String> queue){
+    private TreeNode deserializeHelper(Queue<String> queue){
         String node = queue.poll();
 
         if(node.equals("X")){
             return null;
         }
 
-        TreeNode297 root = new TreeNode297(Integer.parseInt(node));
+        TreeNode root = new TreeNode(Integer.parseInt(node));
         root.left = deserializeHelper(queue);
         root.right = deserializeHelper(queue);
 
