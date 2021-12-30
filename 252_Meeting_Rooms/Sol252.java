@@ -1,4 +1,4 @@
-public class Main5 {
+public class Sol252 {
     public static void main(String[] args) {
         MeetingRooms meetingRooms = new MeetingRooms();
         int[][][] intervals = {{{0, 30}, {5, 10}, {15, 20}}, {{7, 10}, {2, 4}}, {}};

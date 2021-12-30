@@ -21,7 +21,7 @@ public class CommonAlgorithms {
             for(int i = 0; i < level_length; ++i) {
                 TreeNode node = queue.remove();
 
-                levels.get(level).add(node.val);
+                levels.get(level).add(node.value);
 
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
@@ -43,7 +43,7 @@ public class CommonAlgorithms {
     public void inorderHelper(TreeNode root, List<Integer> res) {
         if (root != null) {
             inorderHelper(root.left, res);
-            res.add(root.val);
+            res.add(root.value);
             inorderHelper(root.right, res);
         }
     }
@@ -59,7 +59,7 @@ public class CommonAlgorithms {
 
     public void preorderHelper(TreeNode root, List<Integer> res) {
         if (root != null) {
-            res.add(root.val);
+            res.add(root.value);
             preorderHelper(root.left, res);
             preorderHelper(root.right, res);
         }
@@ -78,7 +78,7 @@ public class CommonAlgorithms {
         if (root != null) {
             postorderHelper(root.left, res);
             postorderHelper(root.right, res);
-            res.add(root.val);
+            res.add(root.value);
         }
     }
 }

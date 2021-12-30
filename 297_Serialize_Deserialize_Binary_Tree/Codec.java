@@ -8,7 +8,7 @@ public class Codec {
             return "X";
         }
 
-        return root.val + "," + serialize(root.left) + "," + serialize(root.right);
+        return root.value + "," + serialize(root.left) + "," + serialize(root.right);
     }
 
 

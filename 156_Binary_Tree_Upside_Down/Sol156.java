@@ -1,4 +1,4 @@
-public class Main10 {
+public class Sol156 {
     public static void main(String[] args) {
         BinaryTreeUpsideDown binaryTreeUpsideDown = new BinaryTreeUpsideDown();
         CommonAlgorithms commonAlgorithms = new CommonAlgorithms();

@@ -1,4 +1,4 @@
-public class Main1 {
+public class Sol460 {
     public static void main(String[] args) {
         int capacity = 2;
         LFUCache lfuCache = new LFUCache(capacity);

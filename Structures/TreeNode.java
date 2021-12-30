@@ -1,19 +1,19 @@
 public class TreeNode {
-    Integer val;
+    Integer value;
     TreeNode left;
     TreeNode right;
 
     TreeNode() {
     }
 
-    TreeNode(Integer val) {
-        this.val = val;
+    TreeNode(Integer value) {
+        this.value = value;
         this.left = null;
         this.right = null;
     }
 
-    TreeNode(Integer val, TreeNode left, TreeNode right) {
-        this.val = val;
+    TreeNode(Integer value, TreeNode left, TreeNode right) {
+        this.value = value;
         this.left = left;
         this.right = right;
     }

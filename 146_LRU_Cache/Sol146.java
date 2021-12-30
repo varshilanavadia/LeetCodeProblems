@@ -1,4 +1,4 @@
-public class Main2 {
+public class Sol146 {
     public static void main(String[] args) {
         int capacity = 2;
         LRUCache lruCache = new LRUCache(capacity);

@@ -1,4 +1,4 @@
-public class Main9 {
+public class Sol42 {
     public static void main(String[] args) {
         TrappingRainWater trappingRainWater = new TrappingRainWater();
 

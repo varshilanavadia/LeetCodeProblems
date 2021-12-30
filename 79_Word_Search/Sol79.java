@@ -1,4 +1,4 @@
-public class Main6 {
+public class Sol79 {
     public static void main(String[] args) {
         String[] words1 = {"ABCCED", "SEE", "ABCB"};
         char[][] board1 = {{'A','B','C','E'}, {'S','F','C','S'}, {'A','D','E','E'}};

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main4 {
+public class Sol49 {
     public static void main(String[] args) {
         GroupAnagrams groupAnagrams = new GroupAnagrams();
         String[] strs = {"eat","tea","tan","ate","nat","bat"};

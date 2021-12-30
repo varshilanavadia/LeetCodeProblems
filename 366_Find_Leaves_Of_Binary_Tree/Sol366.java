@@ -1,10 +1,10 @@
-public class Main8 {
+public class Sol366 {
     public static void main(String[] args) {
-        Codec codec = new Codec();
+        LeavesOfBinaryTree leavesOfBinaryTree = new LeavesOfBinaryTree();
+
         TreeNode root = createTree();
 
-        System.out.println(codec.serialize(root));
-        System.out.println(codec.deserialize(codec.serialize(root)));
+        System.out.println(leavesOfBinaryTree.findLeaves(root));
     }
 
     private static TreeNode createTree() {
@@ -13,9 +13,10 @@ public class Main8 {
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
 
-        root.right.left = new TreeNode(4);
-        root.right.right = new TreeNode(5);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
 
         return root;
+
     }
 }
