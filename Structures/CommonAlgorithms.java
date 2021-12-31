@@ -31,6 +31,7 @@ public class CommonAlgorithms {
         return levels;
     }
 
+
     /*
     * INORDER TRAVERSAL OF BINARY TREE - DEPTH FIRST SEARCH
     * */
@@ -48,6 +49,7 @@ public class CommonAlgorithms {
         }
     }
 
+
     /*
      * PREORDER TRAVERSAL OF BINARY TREE - DEPTH FIRST SEARCH
      * */
@@ -64,6 +66,7 @@ public class CommonAlgorithms {
             preorderHelper(root.right, res);
         }
     }
+
 
     /*
      * POSTORDER TRAVERSAL OF BINARY TREE - DEPTH FIRST SEARCH
