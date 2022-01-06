@@ -39,5 +39,32 @@ public class PartitionSubsets {
     }
 
 
+    // 416 - Partition Equal Subset Sum
+    public boolean canPartition(int[] nums) {
+        int total = IntStream.of(nums).sum();
+
+        if(total % 2 != 0) return false;
+
+        int target = total/2;
+        Boolean[][] memo = new Boolean[nums.length + 1][target + 1];
+
+        return backtrack(nums, target, nums.length-1, memo);
+    }
+
+    private boolean backtrack(int[] nums, int target, int index, Boolean[][] memo){
+        if(target == 0){
+            return true;
+        }
+
+        if(index <= 0 || target < 0){
+            return false;
+        }
+
+        if(memo[index][target] != null){
+            return memo[index][target];
+        }
+
+        return memo[index][target] = backtrack(nums, target - nums[index], index-1, memo) || backtrack(nums, target, index-1, memo);
+    }
 
 }
