@@ -19,7 +19,7 @@ public class UnionFind {
         return x = find(root[x]);
     }
 
-    public void union(int x, int y){
+    public boolean union(int x, int y){
         int rootX = root[x];
         int rootY = root[y];
 
@@ -35,7 +35,9 @@ public class UnionFind {
                 root[rootY] = rootX;
                 rank[rootX] += 1;
             }
+            return true;
         }
+        return false;
     }
 
     public boolean connected(int x, int y){
