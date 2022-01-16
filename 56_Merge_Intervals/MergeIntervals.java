@@ -19,4 +19,26 @@ public class MergeIntervals {
 
         return mergedIntervals.toArray(new int[mergedIntervals.size()][]);
     }
+
+    public int[][] merge_using_stack(int[][] intervals) {
+        int n = intervals.length;
+
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+        Stack<int[]> s = new Stack();
+        s.push(intervals[0]);
+
+        for(int i = 1; i < n; i++){
+            int[] curr = intervals[i];
+            if(curr[0] <= s.peek()[1]){
+                if(s.peek()[1] < curr[1])
+                    s.peek()[1] = curr[1];
+            } else {
+                s.push(curr);
+            }
+        }
+
+        return s.toArray(new int[s.size()][]);
+
+    }
 }
