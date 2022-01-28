@@ -1,9 +1,6 @@
 import javafx.util.Pair;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class CheapestFlights {
 
@@ -54,6 +51,51 @@ public class CheapestFlights {
             }
         }
         return minCost[dst] == Integer.MAX_VALUE ? -1 : minCost[dst];
+    }
+
+    public int findCheapestPrice_using_list(int n, int[][] flights, int src, int dst, int k) {
+        ArrayList<int[]>[] graph = new ArrayList[n];
+        for(int i = 0; i < n; i++){
+            graph[i] = new ArrayList<int[]>();
+        }
+
+        for(int[] flight: flights){
+            graph[flight[0]].add(new int[]{flight[1], flight[2]});
+        }
+
+        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        heap.offer(new int[]{src, 0, 0});
+
+        int[] minCosts = new int[n];
+        int[] minStops = new int[n];
+        Arrays.fill(minCosts, Integer.MAX_VALUE);
+        Arrays.fill(minStops, Integer.MAX_VALUE);
+        minCosts[src] = 0;
+        minStops[src] = 0;
+
+        while(!heap.isEmpty()){
+            int[] current = heap.poll();
+            int city = current[0], cost = current[1], stops = current[2];
+            if(city == dst){
+                return cost;
+            }
+            if(stops == k+1){
+                continue;
+            }
+
+            for(int[] next: graph[city]){
+                int costToNext = next[1];
+                if(cost + costToNext < minCosts[next[0]]){
+                    heap.offer(new int[]{next[0], cost+costToNext, stops+1});
+                    minCosts[next[0]] = cost + costToNext;
+                } else if (stops < minStops[next[0]]){
+                    heap.offer(new int[]{next[0], cost+costToNext, stops+1});
+                }
+                minStops[next[0]] = stops;
+            }
+        }
+
+        return minCosts[dst] == Integer.MAX_VALUE ? -1 : minCosts[dst];
     }
 
     /*
