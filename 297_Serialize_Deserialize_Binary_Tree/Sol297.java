@@ -1,6 +1,6 @@
 public class Sol297 {
     public static void main(String[] args) {
-        Codec codec = new Codec();
+        CodecBT codec = new CodecBT();
         TreeNode root = createTree();
 
         System.out.println(codec.serialize(root));
