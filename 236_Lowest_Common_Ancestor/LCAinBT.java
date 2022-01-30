@@ -19,29 +19,29 @@ public class LCAinBT {
     }
 
     // LCA IN BT 1 AND 2 (236, 1644)
-    TreeNode lca = null;
-    public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q){
-        dfs(root, p, q);
-        return lca;
-    }
-
-    private boolean dfs(TreeNode node, TreeNode p, TreeNode q) {
-        if(node == null){
-            return false;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null){
+            return null;
         }
 
-        int left = dfs(node.left, p, q) ? 1 : 0;
-        int right = dfs(node.right, p, q) ? 1 : 0;
-        int mid = (node == p || node == q) ? 1 : 0;
-
-        if(left + right + mid >= 2){
-            lca = node;
+        if(root == p || root == q){
+            return root;
         }
 
-        return (left + right + mid) > 0;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if(left != null && right != null){
+            return root;
+        } else if (left != null){
+            return left;
+        } else {
+            return right;
+        }
     }
 
     // LCA IN BT 4 (1676)
+    TreeNode lca = null;
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode[] nodes) {
         Set<Integer> set = new HashSet<>();
         for(TreeNode node: nodes){
