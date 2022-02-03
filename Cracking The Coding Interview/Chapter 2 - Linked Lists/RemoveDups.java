@@ -1,9 +1,8 @@
-import com.sun.xml.internal.ws.policy.spi.PolicyAssertionValidator;
-
 import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * CTCI 2.1
  * Write code to remove duplicates from an unsorted linked list
  */
 
