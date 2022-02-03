@@ -168,4 +168,19 @@ public class CommonAlgorithms {
             res.add(root.value);
         }
     }
+
+
+    /*
+    * CREATE LINKED LIST FROM AN INT[]
+    * */
+    public ListNode createLinkedList(int[] array) {
+        int i = 0;
+        ListNode head = new ListNode(-1);
+        ListNode dummy = head;
+        while(i < array.length){
+            dummy.next = new ListNode(array[i++]);
+            dummy = dummy.next;
+        }
+        return head.next;
+    }
 }

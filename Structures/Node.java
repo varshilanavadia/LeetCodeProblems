@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// Graph Node
+// Format - Adjacency List representation
 public class Node {
     public int val;
     public List<Node> neighbors;

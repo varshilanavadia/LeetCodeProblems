@@ -20,8 +20,8 @@ public class UnionFind {
     }
 
     public boolean union(int x, int y){
-        int rootX = root[x];
-        int rootY = root[y];
+        int rootX = find(x);
+        int rootY = find(y);
 
         if(rootX != rootY){
             if(rank[x] > rank[y]){
