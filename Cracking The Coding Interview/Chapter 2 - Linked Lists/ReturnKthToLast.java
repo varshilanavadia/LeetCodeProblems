@@ -1,5 +1,3 @@
-import java.util.List;
-
 /**
  * CTCI 2.2
  * Implement an algorithm to find the kth to last element og a singly linked list.

@@ -1,6 +1,15 @@
+/**
+ * CTCI 2.5
+ * You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in
+ * reverse order, such that the 1's digit is at the head of the list. Write a function that adds the two integers and
+ * returns the sum as a linked list.
+ *
+ * Suppose the digits are stored in forward order. Repeat the above problem
+ */
+
 public class SumLists {
 
-    private ListNode sumOfLists1(ListNode list1, ListNode list2) {
+    private ListNode sumOfLists(ListNode list1, ListNode list2) {
         ListNode result = new ListNode(-1);
         ListNode dummy = result;
 
@@ -36,13 +45,13 @@ public class SumLists {
 
         ListNode list1 = new CommonAlgorithms().createLinkedList(new int[]{7, 1, 6});
         ListNode list2 = new CommonAlgorithms().createLinkedList(new int[]{5, 9, 2});
-        object.sumOfLists1(list1, list2).printList();
+        object.sumOfLists(list1, list2).printList();
 
         list1 = new CommonAlgorithms().createLinkedList(new int[]{6, 1, 7});
         list2 = new CommonAlgorithms().createLinkedList(new int[]{2, 9, 5});
         ListNode list1Rev = reverseLinkedList.reverseList(list1);
         ListNode list2Rev = reverseLinkedList.reverseList(list2);
-        reverseLinkedList.reverseList(object.sumOfLists1(list1Rev, list2Rev)).printList();
+        reverseLinkedList.reverseList(object.sumOfLists(list1Rev, list2Rev)).printList();
     }
 
 }

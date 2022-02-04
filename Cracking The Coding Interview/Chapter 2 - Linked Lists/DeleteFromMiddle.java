@@ -1,11 +1,12 @@
-/*
+/**
+ * CTCI 2.3
 * Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily
 * the exact middle) of a singly linked list, given only access to that node
 *
 * For e.g.
 * input: delete node c from linked list a -> b -> c -> d -> e -> f
 * output: a -> b -> d -> e -> f
-* */
+*/
 
 public class DeleteFromMiddle {
 
