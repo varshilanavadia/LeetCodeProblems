@@ -1,5 +1,33 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class Sol37 {
     public static void main(String[] args) {
+        leetCodeProblem();
+        myOwnCodeToSolveSudoku();
+    }
+
+    private static void myOwnCodeToSolveSudoku() {
+        SudokuSolver sudokuSolver = new SudokuSolver();
+        int[][] board = new int[][]{{5,3,0,0,7,0,0,0,0},
+                {6,0,0,1,9,5,0,0,0},{0,9,8,0,0,0,0,6,0},
+                {8,0,0,0,6,0,0,0,3},{4,0,0,8,0,3,0,0,1},
+                {7,0,0,0,2,0,0,0,6},{0,6,0,0,0,0,2,8,0},
+                {0,0,0,4,1,9,0,0,5},{0,0,0,0,8,0,0,7,9}};
+        printBoard(board);
+        int[][] result = sudokuSolver.solve(board);
+        printBoard(result);
+
+    }
+
+    private static void printBoard(int[][] board) {
+        for(int[] ints : board) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println();
+    }
+
+    private static void leetCodeProblem() {
         SolveSudoku solveSudoku = new SolveSudoku();
         char[][] board = new char[][]{{'5','3','.','.','7','.','.','.','.'},
                 {'6','.','.','1','9','5','.','.','.'},{'.','9','8','.','.','.','.','6','.'},
@@ -15,7 +43,7 @@ public class Sol37 {
 
         solveSudoku.solveSudoku(board);
 
-        System.out.println(compare(board, result));
+        System.out.println(compare(board, result) + "\n");
     }
 
     private static boolean compare(char[][] board, char[][] result) {

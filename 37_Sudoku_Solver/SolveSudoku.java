@@ -1,7 +1,18 @@
+import java.util.Arrays;
+
 public class SolveSudoku {
     public void solveSudoku(char[][] board) {
+        for(char[] ints : board) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println();
         solve(board, 0, 0);
+        for(char[] ints : board) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println();
     }
+
 
     private boolean solve(char[][] board, int row, int col) {
         if(col == 9){
