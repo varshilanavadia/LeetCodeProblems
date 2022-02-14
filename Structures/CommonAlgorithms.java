@@ -169,6 +169,18 @@ public class CommonAlgorithms {
         }
     }
 
+    /*
+    * HEIGHT OF BINARY TREE
+    * */
+
+    public int heightOfBT(TreeNode node){
+        if(node == null){
+            return 0;
+        }
+        int leftHeight = heightOfBT(node.left);
+        int rightHeight = heightOfBT(node.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
 
     /*
     * CREATE LINKED LIST FROM AN INT[]
