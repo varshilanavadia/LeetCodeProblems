@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class CommonAlgorithms {
 
     /*
-    * DIFFERENT BINARY SEARCH
+    * DIFFERENT VERSIONS OF BINARY SEARCH
     *   1. CLASSIC BINARY SEARCH
     *   2. FIND FIRST INDEX OF TARGET
     *   3. FIND LAST INDEX OF TARGET
@@ -194,5 +191,46 @@ public class CommonAlgorithms {
             dummy = dummy.next;
         }
         return head.next;
+    }
+
+    /*
+    * QUICK SORT ALGORITHM
+    * */
+    public int[] quickSort(int[] nums){
+        quickSortHelper(nums, 0, nums.length-1);
+        return nums;
+    }
+
+    private void quickSortHelper(int[] nums, int left, int right) {
+        if(left >= right){
+            return;
+        }
+
+        int pivot = partition(nums, left, right);
+        quickSortHelper(nums, left, pivot - 1);
+        quickSortHelper(nums, pivot + 1, right);
+    }
+
+    private int partition(int[] nums, int left, int right) {
+        int pivot = right;
+        int i = left;
+        for (int j = left; j < right; j++) {
+            if(nums[j] < nums[pivot]){
+                swap(nums, j, i++);
+            }
+        }
+        swap(nums, pivot, i);
+        return i;
+    }
+
+    private void swap(int[] nums, int j, int i) {
+        int temp = nums[j];
+        nums[j] = nums[i];
+        nums[i] = temp;
+    }
+
+    public static void main(String[] args) {
+        CommonAlgorithms a = new CommonAlgorithms();
+        System.out.println(Arrays.toString(a.quickSort(new int[]{3, 5, 1, 2, 7, 6, 4})));
     }
 }
