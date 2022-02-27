@@ -2,7 +2,7 @@ import java.util.stream.IntStream;
 
 public class PartitionSubsets {
 
-    // O(k 2^N) Time Solution
+    // 698 - O(k 2^N) Time Solution
     public boolean canPartitionKSubsets1(int[] nums, int k) {
         int arraySum = IntStream.of(nums).sum();
 
