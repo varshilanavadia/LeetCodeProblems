@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 public class PaintHouse {
 
     // 256 - Paint House 1
@@ -51,11 +53,7 @@ public class PaintHouse {
             }
         }
 
-        int result = Integer.MAX_VALUE;
-        for(int cost : costs[n-1]){
-            result = Math.min(cost, result);
-        }
 
-        return result;
+        return IntStream.of(costs[n-1]).min().getAsInt();
     }
 }

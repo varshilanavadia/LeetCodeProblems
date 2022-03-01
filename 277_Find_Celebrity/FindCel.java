@@ -32,4 +32,10 @@ public class FindCel {
         }
         return true;
     }
+
+    // Method created to avoid compilation errors.
+    // Actual method is an API implementation in LeetCode interface
+    private boolean knows(int candidate, int i) {
+        return true;
+    }
 }

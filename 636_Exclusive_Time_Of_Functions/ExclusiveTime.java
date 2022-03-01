@@ -21,7 +21,7 @@ public class ExclusiveTime {
         for(String logEntry : logs){
             Log currentLog = new Log(logEntry);
             if(currentLog.isStart){
-                stack.push(currentLog);
+                    stack.push(currentLog);
             } else {
                 Log topLog = stack.pop();
                 int executionTime = currentLog.time - topLog.time + 1;
