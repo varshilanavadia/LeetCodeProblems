@@ -98,6 +98,57 @@ public class CheapestFlights {
         return minCosts[dst] == Integer.MAX_VALUE ? -1 : minCosts[dst];
     }
 
+    public int findCheapestPrice_djikstra_usingMap(int n, int[][] flights, int src, int dst, int k) {
+        Map<Integer, List<Integer[]>> graph = new HashMap<>();
+        for(int[] f: flights){
+            Integer s = f[0], d = f[1], c = f[2];
+            graph.putIfAbsent(s, new ArrayList<>());
+            graph.get(s).add(new Integer[]{d, c});
+        }
+
+        PriorityQueue<Integer[]> heap = new PriorityQueue<>(
+                (a, b) -> a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]
+        );
+        Integer[] minCosts = new Integer[n], minStops = new Integer[n];
+        Arrays.fill(minCosts, Integer.MAX_VALUE);
+        Arrays.fill(minStops, Integer.MAX_VALUE);
+
+        minCosts[src] = 0;
+        minStops[src] = 0;
+        heap.offer(new Integer[]{src, 0, 0});
+
+        while(!heap.isEmpty()){
+            Integer[] curr = heap.poll();
+            Integer currCity = curr[0], costToCurrCity = curr[1], stopsToCurrCity = curr[2];
+
+            if(currCity == dst){
+                return costToCurrCity;
+            }
+
+            if(stopsToCurrCity == k+1){
+                continue;
+            }
+
+            if(!graph.containsKey(currCity)){
+                continue;
+            }
+
+            for(Integer[] next: graph.get(currCity)){
+                Integer nextCity = next[0], costToNextCity = next[1];
+
+                if(costToCurrCity + costToNextCity < minCosts[nextCity]){
+                    minCosts[nextCity] = costToCurrCity + costToNextCity;
+                    heap.offer(new Integer[]{nextCity, costToCurrCity + costToNextCity, stopsToCurrCity+1});
+                } else if(stopsToCurrCity < minStops[nextCity]){
+                    heap.offer(new Integer[]{nextCity, costToCurrCity + costToNextCity, stopsToCurrCity+1});
+                }
+                minStops[nextCity] = stopsToCurrCity;
+            }
+        }
+
+        return minCosts[dst] == Integer.MAX_VALUE ? -1 : minCosts[dst];
+    }
+
     /*
     * APPROACH 2
     * DFS with Memoization in O(VK) time
