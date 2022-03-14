@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 class Coordinate{
@@ -12,13 +14,11 @@ class Coordinate{
 }
 public class MinEffort {
     public int minimumEffortPath(int[][] heights) {
-        PriorityQueue<Coordinate> heap = new PriorityQueue<>(
-                (a, b) -> a.effort - b.effort
-        );
+        PriorityQueue<Coordinate> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a.effort));
         int[][] dirs = new int[][]{{-1,0}, {1,0}, {0,1}, {0,-1}};
 
-        int m = heights.length-1, n = heights[0].length-1;
-        int[][] maxEfforts = new int[m+1][n+1];
+        int m = heights.length, n = heights[0].length;
+        int[][] maxEfforts = new int[m][n];
         for(int[] e: maxEfforts){
             Arrays.fill(e, Integer.MAX_VALUE);
         }
@@ -30,7 +30,7 @@ public class MinEffort {
         while(!heap.isEmpty()){
             Coordinate curr = heap.poll();
             int e = curr.effort, x = curr.x, y = curr.y;
-            if(x == m && y == n){
+            if(x == m-1 && y == n-1){
                 return e;
             }
 
@@ -50,7 +50,7 @@ public class MinEffort {
     }
 
     private boolean isValid(int x, int y, int m, int n){
-        return x >= 0 && x <= m & y >= 0 && y <= n;
+        return x >= 0 && x < m & y >= 0 && y < n;
     }
 
     public static void main(String[] args) {
