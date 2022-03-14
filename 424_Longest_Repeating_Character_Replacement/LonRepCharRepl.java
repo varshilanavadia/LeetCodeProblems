@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LonRepCharRepl {
-
     public int characterReplacement(String s, int k) {
         Map<Character, Integer> map = new HashMap<>();
         int i = 0, j = 0;
@@ -24,6 +23,9 @@ public class LonRepCharRepl {
 
     public static void main(String[] args) {
         LonRepCharRepl obj = new LonRepCharRepl();
+        System.out.println(obj.characterReplacement("aabccbb", 2));
+        System.out.println(obj.characterReplacement("abbcb", 1));
+        System.out.println(obj.characterReplacement("abccde", 1));
 
     }
 }
