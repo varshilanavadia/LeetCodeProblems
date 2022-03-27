@@ -16,7 +16,7 @@ public class UnionFind {
         if(x == root[x]){
             return x;
         }
-        return x = find(root[x]);
+        return root[x] = find(root[x]);
     }
 
     public boolean union(int x, int y){
@@ -24,10 +24,10 @@ public class UnionFind {
         int rootY = find(y);
 
         if(rootX != rootY){
-            if(rank[x] > rank[y]){
+            if(rank[rootX] > rank[rootY]){
                 // x has a higher rank (height) than x, so connect y to x
                 root[rootY] = rootX;
-            } else if(rank[x] < rank[y]){
+            } else if(rank[rootX] < rank[rootY]){
                 // y has a higher rank (height) than y, so connect x to y
                 root[rootX] = rootY;
             } else {

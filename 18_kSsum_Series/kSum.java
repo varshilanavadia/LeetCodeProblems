@@ -35,7 +35,7 @@ public class kSum {
 
         while(left < right){
             int curr = nums[left] + nums[right];
-            if(curr < target || (left > start && nums[left] == nums[left-1])){
+            if(curr < target || nums[left] == nums[left-1]){
                 left++;
             } else if (curr > target || (right < nums.length-1 && nums[right] == nums[right+1])){
                 right--;
